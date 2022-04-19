@@ -254,3 +254,5 @@ class Game:
         self.greet()
         self.loop()
 
+g = Game()
+g.start()
