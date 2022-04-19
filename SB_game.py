@@ -201,4 +201,21 @@ class Game:
             board = self.try_board()
         return board
 
-
+    def __init__(self, size = 6):
+        self.size = size
+        pl = self.random_board()
+        co = self.random_board()
+        co.hid = True
+        
+        self.ai = AI(co, pl)
+        self.us = User(pl, co)
+    
+    def greet(self):
+        print("-------------------")
+        print("  Приветсвуем вас  ")
+        print("      в игре       ")
+        print("    морской бой    ")
+        print("-------------------")
+        print(" формат ввода: x y ")
+        print(" x - номер строки  ")
+        print(" y - номер столбца ")
