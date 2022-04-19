@@ -219,3 +219,36 @@ class Game:
         print(" формат ввода: x y ")
         print(" x - номер строки  ")
         print(" y - номер столбца ")
+
+    def loop(self):
+        num = 0
+        while True:
+            print("-"*20)
+            print("Доска пользователя:")
+            print(self.us.board)
+            print("-"*20)
+            print("Доска компьютера:")
+            print(self.ai.board)
+            print("-"*20)
+            if num % 2 == 0:
+                print("Ходит пользователь!")
+                repeat = self.us.move()
+            else:
+                print("Ходит компьютер!")
+                repeat = self.ai.move()
+            if repeat:
+                num -= 1
+            
+            if self.ai.board.count == 7:
+                print("-"*20)
+                print("Пользователь выиграл!")
+                break
+            
+            if self.us.board.count == 7:
+                print("-"*20)
+                print("Компьютер выиграл!")
+                break
+            num += 1
+
+
+
