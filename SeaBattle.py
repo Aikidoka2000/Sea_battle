@@ -91,7 +91,7 @@ class Board:
                 cur = Dot(d.x + dx, d.y + dy)
                 if not(self.out(cur)) and cur not in self.busy:
                     if verb:
-                        self.field[cur.x][cur.y] = "."
+                        self.field[cur.x][cur.y] = "•"
                     self.busy.append(cur)
     
     def add_ship(self, ship):
@@ -127,7 +127,7 @@ class Board:
                     print("Корабль ранен!")
                     return True
         
-        self.field[d.x][d.y] = "."
+        self.field[d.x][d.y] = "•"
         print("Мимо!")
         return False
     
@@ -181,7 +181,7 @@ class Game:
         self.size = size
         pl = self.random_board()
         co = self.random_board()
-        co.hid = False
+        co.hid = True
         
         self.ai = AI(co, pl)
         self.us = User(pl, co)
