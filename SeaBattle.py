@@ -1,5 +1,6 @@
 # Sea_battle game
 
+import time
 from random import randint
 
 class BoardException(Exception):
@@ -153,6 +154,7 @@ class Player:
 
 class AI(Player):
     def ask(self):
+        time.sleep(2)
         d = Dot(randint(0,5), randint(0, 5))
         print(f"Ход компьютера: {d.x+1} {d.y+1}")
         return d
@@ -238,6 +240,7 @@ class Game:
                 repeat = self.us.move()
             else:
                 print("Ходит компьютер!")
+                time.sleep(2)
                 repeat = self.ai.move()
             if repeat:
                 num -= 1
